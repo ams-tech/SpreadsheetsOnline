@@ -15,6 +15,7 @@ namespace ConsoleApp
         {
             ConsoleMenu main = new ConsoleMenu("Main Menu");
 
+
             main.Execute();
         }
     }
