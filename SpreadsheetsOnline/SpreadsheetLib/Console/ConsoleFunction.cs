@@ -10,7 +10,7 @@ namespace SpreadsheetLib.Console
     public class ConsoleFunction
     {
         string _menu_text = "Undefined";
-        public delegate void CallbackDelegate();
+        public delegate string CallbackDelegate();
 
         CallbackDelegate callback = null;
 
@@ -22,12 +22,12 @@ namespace SpreadsheetLib.Console
 
         
 
-        public virtual void Execute()
+        public virtual string Execute()
         {
             if (callback == null)
                 throw new NotImplementedException("Callback delegate not defined for this entry");
             else
-                callback();
+                return callback();
         }
 
         public ConsoleFunction(string menu_entry_text)
@@ -42,6 +42,5 @@ namespace SpreadsheetLib.Console
         }
 
         public ConsoleFunction() { }
-
     }
 }
