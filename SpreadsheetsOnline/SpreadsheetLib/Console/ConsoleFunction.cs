@@ -19,9 +19,7 @@ namespace SpreadsheetLib.Console
             get { return _menu_text; }
             set { }
         }
-
         
-
         public virtual string Execute()
         {
             if (callback == null)
