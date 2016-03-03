@@ -80,5 +80,14 @@ namespace SpreadsheetTest
             menu.Execute(console);
             Assert.IsTrue(console.OutputContains(header_text));
         }
+
+        [TestMethod]
+        public void ConsoleMenu_WhenExecuted_AndSentZero_ShouldStopExecuting()
+        {
+            TestConsole console = new TestConsole();
+            console.AddInputLine("0");
+            ConsoleMenu menu = new ConsoleMenu("");
+            menu.Execute(console);
+        }
     }
 }
