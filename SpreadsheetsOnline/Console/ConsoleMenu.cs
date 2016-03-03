@@ -8,7 +8,7 @@ using System.IO;
 
 namespace ConsoleApp
 {
-    class ConsoleMenu : ConsoleFunction
+    public class ConsoleMenu : ConsoleFunction
     {
         string _menu_header_text = "Generic Menu Text";
 
@@ -19,7 +19,7 @@ namespace ConsoleApp
             entries.Add(entry);
         }
 
-        public override string Execute()
+        public override string Execute(IConsole console)
         {
             int x = 1;
             string input;
@@ -27,23 +27,23 @@ namespace ConsoleApp
 
             while (true)
             {
-                Console.WriteLine("****************************************");
-                Console.WriteLine("*\t" + _menu_header_text);
-                Console.WriteLine("****************************************");
-                Console.Write("\n\n");
-                Console.WriteLine("0 - Return");
+                console.WriteLine("****************************************");
+                console.WriteLine("*\t" + _menu_header_text);
+                console.WriteLine("****************************************");
+                console.Write("\n\n");
+                console.WriteLine("0 - Return");
                 foreach (var entry in entries)
                 {
-                    Console.WriteLine(x.ToString() + " - " + entry.menu_text);
+                    console.WriteLine(x.ToString() + " - " + entry.menu_text);
                 }
 
             
                 while (option < 0)
                 {
-                    Console.Write("Enter Selection: ");
+                    console.Write("Enter Selection: ");
                     try
                     {
-                        input = Console.ReadLine();
+                        input = console.ReadLine();
                     }
                     catch (IOException e)
                     {
@@ -60,12 +60,12 @@ namespace ConsoleApp
                             }
                         }
                     }
-                    Console.WriteLine("\nInvalid selection");
+                    console.WriteLine("\nInvalid selection");
                 }
 
                 if (option > 0)
                 {
-                    Console.Write(entries[option - 1].Execute());
+                    console.Write(entries[option - 1].Execute(console));
                     option = -1;
                 }
                 else if (option == 0)

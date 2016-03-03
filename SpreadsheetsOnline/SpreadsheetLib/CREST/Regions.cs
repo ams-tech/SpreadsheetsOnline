@@ -12,7 +12,7 @@ namespace SpreadsheetLib.CREST
     {
         public ConsoleFunction PrintAllRegions;
 
-        public string GetAllRegions()
+        public string GetAllRegions(IConsole console)
         {
             string retval = "";
             EveCrest crest = new EveCrest();
