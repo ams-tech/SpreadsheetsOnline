@@ -92,6 +92,7 @@
     <Compile Include="Console\ConsoleFunction.cs" />
     <Compile Include="Console\ConsoleMenu.cs" />
     <Compile Include="Console\IConsole.cs" />
+    <Compile Include="CREST\CrestAction.cs" />
     <Compile Include="CREST\Regions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

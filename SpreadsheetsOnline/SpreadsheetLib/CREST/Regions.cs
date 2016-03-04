@@ -1,14 +1,21 @@
 ﻿using System.Linq;
 using SpreadsheetLib.Console;
 using eZet.EveLib.EveCrestModule;
+using System;
 
 namespace SpreadsheetLib.CREST
 {
-    public class Regions
+    public class Regions : CrestAction
     {
-        public ConsoleFunction PrintAllRegions;
+        protected override string menu_text
+        {
+            get
+            {
+                return "Print all regions";
+            }
+        }
 
-        public string GetAllRegions(IConsole console)
+        protected override void _ExecuteInConsole(IConsole console)
         {
             string retval = "";
             EveCrest crest = new EveCrest();
@@ -21,14 +28,7 @@ namespace SpreadsheetLib.CREST
                 retval += "\n";
             }
 
-            return retval;
+            console.Write(retval);
         }
-
-        public Regions()
-        {
-            ConsoleFunction.CallbackDelegate cb = new ConsoleFunction.CallbackDelegate(GetAllRegions);
-            PrintAllRegions = new ConsoleFunction("Print all regions", cb);
-        }
-
     }
 }

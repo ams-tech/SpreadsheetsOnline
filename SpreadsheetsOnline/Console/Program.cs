@@ -33,7 +33,7 @@ namespace ConsoleApp
         {
             ConsoleMenu main = new ConsoleMenu("Main Menu");
             Regions regions = new Regions();
-            main.AddEntry(regions.PrintAllRegions);
+            main.AddEntry(regions.ExecuteInConsole);
 
             main.Execute(new MyConsole());
         }

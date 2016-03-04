@@ -19,7 +19,7 @@ namespace ConsoleApp
             entries.Add(entry);
         }
 
-        public override string Execute(IConsole console)
+        public override void Execute(IConsole console)
         {
             int x = 1;
             string input;
@@ -45,7 +45,7 @@ namespace ConsoleApp
                     {
                         input = console.ReadLine();
                     }
-                    catch (IOException e)
+                    catch (IOException)
                     {
                         input = null;
                     }
@@ -65,13 +65,13 @@ namespace ConsoleApp
 
                 if (option > 0)
                 {
-                    console.Write(entries[option - 1].Execute(console));
+                    entries[option - 1].Execute(console);
                     option = -1;
                 }
                 else if (option == 0)
                     break;
             }
-            return "";
+            return;
         }
 
         public ConsoleMenu(string header_text)
